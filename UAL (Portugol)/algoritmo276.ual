@@ -1,0 +1,49 @@
+#Exercício 1
+#Algoritmo 276
+
+#Entrar com a idade e sexo de várias pessoas e imprimir:
+
+#  - total de pessoas com menos de 21 anos
+
+#  - total de pessoas com mais de 50 anos.
+
+#  - percentual de pessoas do sexo feminino, entre 21 e 30 anos.
+
+prog algoritmo276
+     int idade, opcao, i, percentualFem, maior50, menor21;
+     int quantPessoas;
+     
+     menor21 <- 0;
+     maior50 <- 0;
+     percentualFem <- 0;
+     i <- 1;
+     
+     imprima "Digite a quantidade de pessoas que se deseja avaliar: ";
+     leia quantPessoas;
+     
+     enquanto (i <= quantPessoas)
+     {
+         imprima "Digite [0] para sexo masculino e [1] para sexo feminino: ";
+         leia opcao;
+         imprima "Digite a idade da pessoa: ";
+         leia idade;
+         
+         se (opcao == 1 && idade  > 21 && idade < 30)
+         {
+              percentualFem++;    
+         }
+         se (idade > 50)
+         {
+            maior50++;
+         }
+         se (idade < 21)
+         {
+            menor21++;
+         }
+         i++;
+     }
+     imprima "O total de pessoas com menor de 21 anos e: ", menor21;
+     imprima "\nO total de pessoas com mais de 50 anos e: ", maior50;
+     imprima "\nO percentual de pessoas do sexo feminino entre 21 e 30 anos e: ", percentualFem / quantPessoas * 100;
+     imprima "\n\n";
+fimprog

@@ -1,0 +1,28 @@
+prog ordenacaoString
+     string nome[5], aux;
+     int i, j;
+     
+     para (i <- 0; i < 5; i++)
+     {
+        imprima "digite um nome: ";
+        leia nome[i];
+     }
+     para (i <- 0; i < 4; i++)
+     {
+        para (j <- (i + 1); j < 5; j++)
+        {
+           se ((strcomp(nome[i], nome[j])) == "maior")
+           {
+              aux <- nome[i];
+              nome[i] <- nome[j];
+              nome[j] <- aux;
+           }
+        }
+     }
+     
+     para (i <- 0; i < 5; i++)
+     {
+        imprima "nome: ", nome[i];
+        imprima "\n";
+     }
+fimprog

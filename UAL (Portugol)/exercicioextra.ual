@@ -1,0 +1,31 @@
+#Extra
+#Criar um algoritmo que leia dados para um vetor de 100 elementos inteiros.
+#Imprimir os 5 menores valores.
+
+prog algoritmoExtra
+     int vet[100];
+     int i, j, aux;
+     
+     para (i <- 0; i < 100; i++)
+     {
+        imprima "Digite um numero para o elemento ", i + 1, ": ";
+        leia vet[i];
+     }
+     para (i <- 0; i < 99; i++)
+     {
+        para (j <- (i + 1); j < 100; j++)
+        {
+           se (vet[i] > vet[j])
+           {
+              aux <- vet[i];
+              vet[i] <- vet[j];
+              vet[j] <- aux;
+           }
+        }
+     }
+     para (i <- 0; i < 5; i++)
+     {
+        imprima "o ", i + 1, " menor valor e: ", vet[i];
+        imprima "\n";
+     }
+fimprog

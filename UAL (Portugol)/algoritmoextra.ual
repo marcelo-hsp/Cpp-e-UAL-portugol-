@@ -1,0 +1,24 @@
+#EXTRA
+#Construa um algoritmo que mostre os 
+#primeiros 20 números  da série de FIBONACCI.
+
+#Exemplo: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,.
+
+prog algoritmofibonacci
+     int numero, i, numFibo, aux;
+     
+     numero <- 0;
+     numFibo <- 1;
+     i <- 1;
+     
+     imprima "OS PRIMEIROS 20 NUMEROS DA SEQUENCIA DE FIBONACCI SAO: \n\n";
+     enquanto (i <= 20)
+     {
+          aux <- numero + numFibo;
+          numero <- numFibo;
+          numFibo <- aux;
+          imprima " ", numFibo; 
+          i++;   
+     }
+     imprima "\n\n";
+fimprog

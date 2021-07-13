@@ -1,0 +1,119 @@
+#EXTRA
+ 
+#Faça um programa para ler um numero entre 1 e 10 apenas, mostrar a tabuada deste numero. 
+#O programa se encerra quando se digitar "FIM".
+#O programa  deve apresentar uma mensagem de término do programa.
+
+#Exemplo:
+
+#digite um numero: 10
+
+#1 x 10 = 10
+#2 x 10 = 20
+#...
+#10 x 10 = 100
+
+#deseja continuar (FIM encerra) ? FIM
+
+#programa executado com sucesso!!
+
+prog tabuada
+     string opcao;
+     int num, a;
+     faca
+     {
+         imprima "Digite um numero de 1 a 10: ";
+         leia opcao;
+         se (opcao == "1") 
+         {
+            num <- 1;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "2") 
+         {
+            num <- 2;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "3") 
+         {
+            num <- 3;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "4") 
+         {
+            num <- 4;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "5") 
+         {
+            num <- 5;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "6") 
+         {
+            num <- 6;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "7") 
+         {
+            num <- 7;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "8") 
+         {
+            num <- 8;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "9") 
+         {
+            num <- 9;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+         se (opcao == "10") 
+         {
+            num <- 10;
+            para (a <- 1; a <= 10; a++)
+            {
+                 imprima num, " x ", a, " = ", num * a;
+                 imprima "\n\n";
+            }
+         }
+     }enquanto (opcao <> "FIM")
+     imprima "\nPrograma executado com sucesso!\n";
+fimprog

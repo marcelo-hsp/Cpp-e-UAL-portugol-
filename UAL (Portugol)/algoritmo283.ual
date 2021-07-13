@@ -1,0 +1,65 @@
+#Exercício 2
+
+#Algoritmo 283
+
+#Uma agência de uma cidade do interior tem, no máximo, 1000 clientes.
+#Criar um algoritmo que possa entrar com o número da conta, nome e saldo de cada cliente.
+#Imprimir todas as contas, os respectivos saldos e uma das mensagens: positivo/negativo.
+#A digitação acaba quando se digita -999 para número da conta ou quando chegar a 1000. Ao final,
+#devera sair  o total de clientes com saldo negativo, o total de clientes da 
+#agência e o saldo da agência.
+
+prog algoritmo283
+     int numeroConta;
+     string nomeCliente;
+     real saldoCliente;
+     real saldoTotalAgencia;
+     int clientesTotais;
+     int clientesNegativados;
+     int i;
+     
+     i <- 1;
+     clientesTotais <- 0;
+     clientesNegativados <- 0;
+     saldoTotalAgencia <- 0.0;
+
+     enquanto (i <= 1000)
+     {
+          imprima "Digite o numero da conta do cliente [ou digite -999 para sair]: ";
+          leia numeroConta;
+          
+          se (numeroConta == -999)
+          {
+               saia;
+          }
+          
+          clientesTotais++;
+          
+          imprima "Digite o nome do cliente: ";
+          leia nomeCliente;
+          
+          imprima "Digite o saldo do cliente: ";
+          leia saldoCliente;
+          se (saldoCliente < 0.0)
+          {
+             clientesNegativados++;
+             imprima nomeCliente, "\t",
+                     "Numero da conta: ", numeroConta, "\t",
+                     "Cliente negativado!",
+                     "\tSaldo: ", saldoCliente,
+                     "\n--------------\n\n";
+          }
+          senao
+          {
+               imprima nomeCliente, "\t",
+                       "Numero da conta: ", numeroConta, "\t",
+                       "\tSaldo: ", saldoCliente,
+                       "\n--------------\n\n";
+                       
+               saldoTotalAgencia <- saldoTotalAgencia + saldoCliente;
+          }
+     }
+     imprima "Saldo total agencia: ", saldoTotalAgencia;
+     imprima "\nNegativados: ", clientesNegativados;
+     imprima "\n Total de clientes da agencia: ", clientesTotais, "\n";
+fimprog

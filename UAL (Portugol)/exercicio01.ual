@@ -1,0 +1,32 @@
+#Exercício 1 
+#Criar um algoritmo que leia os limites inferior e superior de um intervalo 
+#e imprima todos os números pares no intervalo aberto e seu somatório.
+#Suponha que os números digitados são um intervalo crescente. Exemplo:
+         
+#Limite inferior: 3
+#Limite superior: 12
+#Saída: 4 6 8 10
+#Soma: 28
+
+prog exercicio01
+     int limiteInf, limiteSup;
+     int i, soma;
+     
+     soma <- 0;
+     
+     imprima "Digite o limite inferior: ";
+     leia limiteInf;
+     imprima "Digite o limite superior: ";
+     leia limiteSup;
+     
+     para (i <- limiteInf; i < limiteSup; i++)
+     {
+          se ((i % 2 == 0))
+          {
+             imprima i," ";
+             soma <- soma + i;
+          }
+     }
+     imprima "Soma = ", soma;
+     imprima "\n";
+fimprog

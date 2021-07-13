@@ -1,0 +1,402 @@
+#Criar um algoritmo que entre com nome e a matrícula para as disciplinas de
+#Programação I e Sistemas de Informação. 
+#Cada disciplina tem 100 vagas. Após a entrada de dados, aparecerá 
+#o menu a seguir:
+#MENU:
+#1- Todos de Programação I
+#2- Todos de Sistemas de Informação
+#3- Todos que fazem as duas
+#4- Todos de Sistema de Informação em ordem Alfabética
+#5- Sair
+#OPCAO:
+#1. Ao se digitar 1, sairão todos os nomes e respectivas matrículas.
+#2. Ao se digitar 2, sairão todos os nomes e respectivas matrículas.
+#3. Ao se digitar 3, sairão todos os nomes e respectivas matrículas.  A PROCURA DEVERÁ SER FEITA PELA MATRÍCULA.
+#4. Ao se digitar 4, sairão todos os nomes e respectivas matrículas em ordem alfabética.
+#5. Ao se digitar 5, aparecerá a mensagem: FECHANDO.
+#6. Qualquer outro número, aparecerá a mensagem: OPÇÃO INVÁLIDA.
+
+prog matricula
+     int matriculaProgramacao[100], matriculaSistemas[100], matriculaAmbos[100], matriculaAlunos[300];
+     string nomeAlunoProgramacao[100], nomeAlunoSistemas[100], nomeAlunoAmbos[100], nomeAlunos[300];
+     string opCadastro, auxNome;
+     int quantAlunosProg, quantAlunosSI, quantAlunosAmbos;
+     int alunosProg, alunosSI, alunosAmbos, alunosTotais;
+     int j, i, auxMatricula;
+     int opcaoMenu;
+     real notaAlunoProgramacao[100], notaAlunoSI[100], notaAlunoAmbos[100], notaAlunos[300];
+     real auxNota;
+     
+     alunosProg <- 0;
+     alunosSI <- 0;
+     alunosAmbos <- 0;
+     alunosTotais <- 0;
+     
+     imprima "|-----------------------------------------------------------------------|\n";
+     imprima "|BEM VINDO AO SISTEMA PARA CADASTRO DE ALUNOS                           |\n";
+     imprima "|PARA O CURSO DE PROGRAMACAO I E SISTEMAS DE INFORMACAO                 |\n";
+     imprima "|-----------------------------------------------------------------------|\n";
+     
+     faca
+     {
+        imprima "|DESEJA CADASTRAR ALUNOS PARA O CURSO DE PROGRAMACAO I? [s/n]: ";
+        leia opCadastro;
+     }
+     enquanto (opCadastro <> "S" && opCadastro <> "s" && opCadastro <> "N" && opCadastro <> "n")
+     
+     se (opCadastro == "S" || opCadastro == "s")
+     {
+        faca
+        {
+           imprima "|Digite a quantidade de alunos para o curso de\n|PROGRAMACAO I que voce deseja cadastrar> ";
+           leia quantAlunosProg;
+           se (quantAlunosProg <= 0 || quantAlunosProg > 100)
+           {
+              imprima "|Digite uma quantidade de alunos entre 1 e 100\n";
+           }
+        }
+        enquanto (quantAlunosProg <= 0 || quantAlunosProg > 100)
+        
+        
+        para (i <- 0; i < quantAlunosProg; i++)
+        {
+           imprima "|DIGITE A MATRICULA DO ALUNO ", i + 1, ": ";
+           leia matriculaProgramacao[i];
+           imprima "|DIGITE O NOME DO ALUNO ", i + 1, ": ";
+           leia nomeAlunoProgramacao[i];
+           faca
+           {
+              imprima "|DIGITE A NOTA DO ALUNO ", i + 1, ": ";
+              leia notaAlunoProgramacao[i];
+              se (notaAlunoProgramacao[i] < 0.0 || notaAlunoProgramacao[i] > 10.0)
+              {
+                 imprima "|Digite uma nota valida entre 0.0 e 10.0\n";
+              }
+           }
+           enquanto (notaAlunoProgramacao[i] < 0.0 || notaAlunoProgramacao[i] > 10.0)
+           
+           matriculaAlunos[alunosTotais] <- matriculaProgramacao[i];
+           nomeAlunos[alunosTotais] <- nomeAlunoProgramacao[i];
+           notaAlunos[alunosTotais] <- notaAlunoProgramacao[i];
+           alunosProg++;
+           alunosTotais++;
+        }
+     }
+     senao
+     {
+        imprima "NAO SERAO CADASTRADOS ALUNOS PARA O CURSO\n|DE PROGRAMACAO I\n";
+     }
+     
+     faca
+     {
+        imprima "\n|DESEJA CADASTRAR ALUNOS PARA O CURSO DE SISTEMAS DE INFORMACAO? [s/n]: ";
+        leia opCadastro;
+     }
+     enquanto (opCadastro <> "S" && opCadastro <> "s" && opCadastro <> "N" && opCadastro <> "n")
+     
+     se (opCadastro == "S" || opCadastro == "s")
+     {
+        faca
+        {
+           imprima "|Digite a quantidade de alunos para o curso de\n|SISTEMAS DE INFORMACAO que voce deseja cadastrar> ";
+           leia quantAlunosSI;
+           se (quantAlunosSI <= 0 || quantAlunosSI > 100)
+           {
+              imprima "|Digite uma quantidade de alunos entre 1 e 100\n";
+           }
+        }
+        enquanto (quantAlunosSI <= 0 || quantAlunosSI > 100)
+        
+        para (i <- 0; i < quantAlunosSI; i++)
+        {
+           imprima "|DIGITE A MATRICULA DO ALUNO ", i + 1, ": ";
+           leia matriculaSistemas[i];
+           imprima "|DIGITE O NOME DO ALUNO ", i + 1, ": ";
+           leia nomeAlunoSistemas[i];
+           faca
+           {
+              imprima "|DIGITE A NOTA DO ALUNO ", i + 1, ": ";
+              leia notaAlunoSI[i];
+              se (notaAlunoSI[i] < 0.0 || notaAlunoSI[i] > 10.0)
+              {
+                 imprima "|Digite uma nota valida entre 0.0 e 10.0\n";
+              }
+           }
+           enquanto (notaAlunoSI[i] < 0.0 || notaAlunoSI[i] > 10.0)
+           
+           matriculaAlunos[alunosTotais] <- matriculaSistemas[i];
+           nomeAlunos[alunosTotais] <- nomeAlunoSistemas[i];
+           notaAlunos[alunosTotais] <- notaAlunoSI[i];
+           alunosSI++;
+           alunosTotais++;
+        }
+     }
+     senao
+     {
+        imprima "NAO SERAO CADASTRADOS ALUNOS PARA O CURSO\n|DE SISTEMAS DE INFORMACAO I\n";
+     }
+     
+     faca
+     {
+        imprima "\n|DESEJA CADASTRAR ALUNOS PARA OS DOIS CURSOS? [s/n]: ";
+        leia opCadastro;
+     }
+     enquanto (opCadastro <> "S" && opCadastro <> "s" && opCadastro <> "N" && opCadastro <> "n")
+     
+     se (opCadastro == "S" || opCadastro == "s")
+     {
+        faca
+        {
+           imprima "|Digite a quantidade de alunos para o curso de\n|SISTEMAS DE INFORMACAO & PROGRAMACAO I que voce deseja cadastrar> ";
+           leia quantAlunosAmbos;
+           se ((quantAlunosAmbos + alunosProg) > 100 || (quantAlunosAmbos + alunosSI) > 100 || quantAlunosAmbos < 0 || quantAlunosAmbos > 100)
+           {
+              se ((quantAlunosAmbos + alunosProg) > 100)
+              {
+                 imprima "|Quantidade de alunos em Programacao excedido o limite de 100 alunos.\n";
+              }
+              se ((quantAlunosAmbos + alunosSI) > 100)
+              {
+                 imprima "|Quantidade de alunos em Sistemas de Informacao excedido o limite de 100 alunos.\n";
+              }
+              senao
+              {
+                 imprima "|Digite um valor valido de alunos entre 1 e 100.\n";
+              }
+           }
+        }
+        enquanto((quantAlunosAmbos + alunosProg) > 100 || (quantAlunosAmbos + alunosSI) > 100 || quantAlunosAmbos < 0 || quantAlunosAmbos > 100)
+           
+        para (i <- 0; i < quantAlunosAmbos; i++)
+        {
+           imprima "|DIGITE A MATRICULA DO ALUNO ", i + 1, ": ";
+           leia matriculaAmbos[i];
+           imprima "|DIGITE O NOME DO ALUNO ", i + 1, ": ";
+           leia nomeAlunoAmbos[i];        
+           faca 
+           {
+              imprima "|DIGITE A NOTA DO ALUNO ", i + 1, ": ";
+              leia notaAlunoAmbos[i];
+              se (notaAlunoAmbos[i] < 0.0 || notaAlunoAmbos[i] > 10.0)
+              {
+                 imprima "|Digite uma nota valida entre 0.0 e 10.0\n";
+              }
+           }
+           enquanto (notaAlunoAmbos[i] < 0.0 || notaAlunoAmbos[i] > 10.0)
+           
+           matriculaProgramacao[alunosProg] <- matriculaAmbos[i];
+           matriculaSistemas[alunosSI] <- matriculaAmbos[i];
+           matriculaAlunos[alunosTotais] <- matriculaAmbos[i];
+           
+           nomeAlunoProgramacao[alunosProg] <- nomeAlunoAmbos[i];
+           nomeAlunoSistemas[alunosSI] <- nomeAlunoAmbos[i];
+           nomeAlunos[alunosTotais] <- nomeAlunoAmbos[i];
+           
+           notaAlunoSI[alunosSI] <- notaAlunoAmbos[i];
+           notaAlunoProgramacao[alunosProg] <- notaAlunoAmbos[i];
+           notaAlunos[alunosTotais] <- notaAlunoAmbos[i];
+           
+           alunosTotais++;
+           alunosAmbos++;
+           alunosProg++;
+           alunosSI++;
+        }
+     }
+     senao
+     {
+        imprima "|NAO SERAO CADASTRADOS ALUNOS PARA OS CURSOS\n|DE SISTEMAS DE INFORMACAO & PROGRAMACAO I\n";
+     }
+     
+     #pós cadastro
+     
+     imprima "\n\n|=============================================================|\n";
+     imprima "|POS CADASTRO                                                 |\n";
+     imprima "|=============================================================|\n";
+     
+     faca
+     {
+        imprima "\n|MENU\n";
+        imprima "|[1] - TODOS DE PROGRAMACAO I\n";
+        imprima "|[2] - TODOS OS ALUNOS DE SISTEMAS DE INFORMACAO\n";
+        imprima "|[3] - TODOS QUE FAZEM AS DUAS MATERIAS\n";
+        imprima "|[4] - TODOS DE SISTEMAS DE INFORMACAO EM ORDEM ALFABETICA\n";
+        imprima "|[5] - TODOS OS ALUNOS DE PROGRAMACAO I EM ORDEM ALFABETICA\n";
+        imprima "|[6] - TODOS OS ALUNOS CADASTRADOS EM ORDEM ALFABETICA\n";
+        imprima "|[7] - SAIR\n";
+        imprima "OPCAO > ";
+        leia opcaoMenu;
+        se (opcaoMenu <> 7)
+        {
+           se (opcaoMenu == 1 && alunosProg >0)
+           {
+              imprima "\n|RELACAO DE CADASTRO DE ALUNOS NO CURSO DE PROGRAMACAO I\n";
+              para (i <- 0; i < alunosProg; i++)
+              {
+                  imprima "|NOME ALUNO -> ", nomeAlunoProgramacao[i],
+                          "\t\tMATRICULA -> ", matriculaProgramacao[i],
+                          "\t\tNOTA -> ", notaAlunoProgramacao[i];
+                  imprima "\n";
+              }
+           }
+           se (opcaoMenu == 1 && alunosProg == 0)
+           {
+              imprima "\nNao foram cadastrados alunos somente no curso de Programacao.\n";
+           }
+           
+           se (opcaoMenu == 2 && alunosSI > 0)
+           {
+              imprima "\n|RELACAO DE CADASTRO DE ALUNOS NO CURSO DE SISTEMAS DE INFORMACAO\n";
+              para (i <- 0; i < alunosSI; i++)
+              {
+                  imprima "|NOME ALUNO -> ", nomeAlunoSistemas[i],
+                          "\t\tMATRICULA -> ", matriculaSistemas[i],
+                          "\t\tNOTA -> ", notaAlunoSI[i];
+                  imprima "\n";
+              }
+           }
+           se (opcaoMenu == 2 && alunosSI == 0)
+           {
+              imprima "\nNao foram cadastrados alunos somente no curso de Sistemas de Informacao.\n";
+           }
+           
+           se (opcaoMenu == 3 && alunosAmbos > 0)
+           {
+              imprima "\n|RELACAO DE CADASTRO DE ALUNOS NO CURSO DE SISTEMAS DE INFORMACAO\nE PROGRAMACAO I\n";
+              para (i <- 0; i < alunosAmbos; i++)
+              {
+                  imprima "|NOME ALUNO -> ", nomeAlunoAmbos[i],
+                          "\t\tMATRICULA -> ", matriculaAmbos[i],
+                          "\t\tNOTA -> ", notaAlunoAmbos[i];
+                  imprima "\n";
+              }
+           }
+           se (opcaoMenu == 3 && alunosAmbos == 0)
+           {
+              imprima "\nNao existem alunos cadastrados nos dois cursos ao mesmo tempo.\n";
+           }
+           
+           se (opcaoMenu == 4 && alunosSI > 0)
+           {
+               para (i <- 0; i < (alunosSI - 1); i++)
+               {
+                  para (j <- (i + 1); j < alunosSI; j++)
+                  {
+                     se ((strcomp(nomeAlunoSistemas[i], nomeAlunoSistemas[j])) == "maior")
+                     {
+                        auxNome <- nomeAlunoSistemas[i];
+                        nomeAlunoSistemas[i] <- nomeAlunoSistemas[j];
+                        nomeAlunoSistemas[j] <- auxNome;
+                        
+                        auxMatricula <- matriculaSistemas[i];
+                        matriculaSistemas[i] <- matriculaSistemas[j];
+                        matriculaSistemas[j] <- auxMatricula;
+                        
+                        auxNota <- notaAlunoSI[i];
+                        notaAlunoSI[i] <- notaAlunoSI[j];
+                        notaAlunoSI[j] <- auxNota;
+                     }
+                  }
+               }
+               imprima "\n";
+               para (i <- 0; i < alunosSI; i++)
+               {
+                  imprima "|NOME ALUNO -> ", nomeAlunoSistemas[i],
+                          "\t\tMATRICULA -> ", matriculaSistemas[i],
+                          "\t\tNOTA -> ", notaAlunoSI[i];
+                  imprima "\n";
+               }  
+           }
+           se (opcaoMenu == 4 && alunosSI == 0)
+           {
+              imprima "\nNao foram cadastrados alunos no curso de Sistemas de Informacao.\n";
+           }
+           
+           se (opcaoMenu == 5 && alunosProg > 0)
+           {
+               para (i <- 0; i < (alunosProg - 1); i++)
+               {
+                  para (j <- (i + 1); j < alunosProg; j++)
+                  {
+                     se ((strcomp(nomeAlunoProgramacao[i], nomeAlunoProgramacao[j])) == "maior")
+                     {
+                        auxNome <- nomeAlunoProgramacao[i];
+                        nomeAlunoProgramacao[i] <- nomeAlunoProgramacao[j];
+                        nomeAlunoProgramacao[j] <- auxNome;
+                        
+                        auxMatricula <- matriculaProgramacao[i];
+                        matriculaProgramacao[i] <- matriculaProgramacao[j];
+                        matriculaProgramacao[j] <- auxMatricula;
+                        
+                        auxNota <- notaAlunoProgramacao[i];
+                        notaAlunoProgramacao[i] <- notaAlunoProgramacao[j];
+                        notaAlunoProgramacao[j] <- auxNota;
+                     }
+                  }
+               }
+               imprima "\n";
+               para (i <- 0; i < alunosProg; i++)
+               {
+                  imprima "|NOME ALUNO -> ", nomeAlunoProgramacao[i],
+                          "\t\tMATRICULA -> ", matriculaProgramacao[i],
+                          "\t\tNOTA -> ", notaAlunoProgramacao[i];
+                  imprima "\n";
+               }  
+           }
+           se (opcaoMenu == 5 && alunosProg == 0)
+           {
+              imprima "\nNao foram cadastrados alunos no curso de Programacao I.\n";
+           }
+           #opcao 6 listar todos em ordem alfabetica
+           se (opcaoMenu == 6)
+           {
+              se (alunosProg == 0 && alunosSI == 0)
+              {
+                 imprima "\n|Nao foram cadastrado alunos em nenhum curso.\n";
+              }
+              senao
+              {  
+                 para (i <- 0; i < (alunosTotais - 1); i++)
+                 {
+                    para (j <- (i + 1); j < alunosTotais; j++)
+                    {
+                       se ((strcomp(nomeAlunos[i], nomeAlunos[j])) == "maior")
+                       {
+                          auxNome <- nomeAlunos[i];
+                          nomeAlunos[i] <- nomeAlunos[j];
+                          nomeAlunos[j] <- auxNome;
+                          
+                          auxMatricula <- matriculaAlunos[i];
+                          matriculaAlunos[i] <- matriculaAlunos[j];
+                          matriculaAlunos[j] <- auxMatricula;
+                          
+                          auxNota <- notaAlunos[i];
+                          notaAlunos[i] <- notaAlunos[j];
+                          notaAlunos[j] <- auxNota;
+                       }
+                    }
+                 }
+                 imprima "\n";
+                 para (i <- 0; i < alunosTotais; i++)
+                 {
+                    imprima "|NOME ALUNO -> ", nomeAlunos[i],
+                          "\t\tMATRICULA -> ", matriculaAlunos[i],
+                          "\t\tNOTA -> ", notaAlunos[i];
+                    imprima "\n";
+                 }
+              }
+           }
+           se (opcaoMenu <> 1 && opcaoMenu <> 2 && opcaoMenu <> 3 && opcaoMenu <> 4 && opcaoMenu <> 5 && opcaoMenu <> 6 &&
+           opcaoMenu <> 7)
+           {
+              imprima "\nDigite uma opcao de menu valida.\n";
+           }
+        }
+        senao
+        {
+           imprima "|************************************************************************|\n";
+           imprima "|SAINDO...                                                               |\n";
+           imprima "|************************************************************************|\n";  
+        }
+     }
+     enquanto (opcaoMenu <> 7)
+fimprog

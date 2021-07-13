@@ -1,0 +1,82 @@
+#Algoritmo 329 – Faca ENQUANTO
+#Em uma eleição presidencial, existem quatro candidatos. 
+#Os votos são informados através de código. 
+#Os dados utilizados para a escrutinagem obedecem à seguinte codificação:
+
+#  - 17, 30, 27, 15 = voto para os respectivos candidatos;
+
+#  - 5 = voto nulo;   - 6 = voto em branco;
+
+#Elaborar um algoritmo que calcule e imprima:
+
+#  - Total de votos para cada candidato;
+
+#  - Total de votos nulos;
+
+#  - Total de votos em branco;
+
+#  - Percentual dos votos em branco e nulos sobre o total.
+
+prog eleicoes
+     int candidato17, candidato30, candidato27, candidato15;
+     int nulo, branco;
+     int voto, votosTotais;
+     
+     candidato17 <- 0;
+     candidato30 <- 0;
+     candidato27 <- 0;
+     candidato15 <- 0;
+     branco <- 0;
+     nulo <- 0;
+     votosTotais <- 0;
+     
+     faca
+     {
+         imprima "\n\t\t CANDIDATO[17]\n
+                 CANDIDATO[30]\n
+                 CANDIDATO[27]\n
+                 CANDIDATO[15]\n
+                 BRANCO[6]\n
+                 NULO[5]\n";
+         
+         imprima "\n\nINSIRA O VOTO COM O RESPECTIVO CODIGO DE CANDIDATO [-1 para emitir relatorio]: ";
+         leia voto;
+         
+         se(voto <> -1)
+         {
+                 se (voto == 17){candidato17++;}
+                 se (voto == 30){candidato30++;}
+                 se (voto == 27){candidato27++;}
+                 se (voto == 15){candidato15++;}
+                 se (voto == 5){nulo++;}
+                 se (voto == 6){branco++;}
+                 
+                 se (voto <> 17 && voto <> 30 && voto <> 27 && voto <> 15 && voto <> 5 && voto <> 6)
+                 {
+                          imprima "\n\n\n\t\t################################\n";
+                          imprima "\n\n\t\tCodigo de candidato invalido!\n";
+                          imprima "\n\n\n\t\t################################\n";
+                 }
+                 senao
+                 {
+                          votosTotais++;
+                 }
+         } 
+     } enquanto (voto <> -1)
+     
+     se (votosTotais == 0) {imprima "Nao foram inseridos votos.\n";}
+     senao
+     {
+          imprima "\tCANDIDATO 17 -> \tTOTAL DE VOTOS: ", candidato17;
+          imprima "\n\tCANDIDATO 30 -> \tTOTAL DE VOTOS: ", candidato30;
+          imprima "\n\tCANDIDATO 27 -> \tTOTAL DE VOTOS: ", candidato27;
+          imprima "\n\tCANDIDATO 15 -> \tTOTAL DE VOTOS: ", candidato15;
+          imprima "\n\tTOTAL DE VOTOS NULOS: ", nulo;
+          imprima "\n\tTOTAL DE VOTOS BRANCOS: ", branco;
+          imprima "\n----------------------------------------------------------------\n";
+     }
+     
+     imprima "\nO PERCENTUAL DE VOTOS BRANCOS E: ", formatar((branco / votosTotais * 100),2);
+     imprima "\nO PERCENTUAL DE VOTOS NULOS E: ", formatar((nulo / votosTotais * 100),2);
+     imprima "\n";
+fimprog

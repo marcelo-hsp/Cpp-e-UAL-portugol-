@@ -1,0 +1,49 @@
+#Exercício 2
+#Fazer um programa para que verifique se os elementos de um vetor  A  DIGITADO 
+#pelo usuário estão em ordem crescente.
+#Observação: você não pode alterar o a sequência de valores informados do vetor A.
+
+prog exercicio02
+     int vetA[50];
+     int i, j;
+     int quantNum;
+     int validador;
+     
+     validador <- 1;
+     
+     faca
+     {
+        imprima "Digite a quantidade de elementos a serem digitados: ";
+        leia quantNum;
+        se (quantNum < 0 || quantNum > 50)
+        {
+           imprima "Digite um valor maior que 0 e menor que 50.\n";
+        }
+     }
+     enquanto (quantNum < 0 || quantNum > 50)
+     para (i <- 0; i < quantNum; i++)
+     {
+        imprima "Digite o ", i + 1, " elemento: ";
+        leia vetA[i];
+     }
+     
+     para (i <- 0; i < (quantNum - 1); i++)
+     {
+        para (j <- (i + 1); j < quantNum; j++)
+        {
+           se (vetA[i] > vetA[j])
+           {
+              validador <- 0;
+           }
+        }
+     }
+     
+     se (validador == 1)
+     {
+        imprima "Numeros digitados em sequencia crescente.\n";
+     }
+     senao 
+     {
+        imprima "Numeros nao foram digitados em ordem crescente.\n";
+     }
+fimprog
